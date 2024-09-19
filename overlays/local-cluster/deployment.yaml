@@ -9,7 +9,6 @@ spec:
       replicas: 2
       containers:
       - name: nginx
-        image: docker.io/nginx:latest
         env:
         - name: test
           value: "true" 
