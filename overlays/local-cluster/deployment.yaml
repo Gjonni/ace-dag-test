@@ -4,16 +4,8 @@ metadata:
   name: web-deployment-v2
   namespace: pippo
 spec:
-  selector:
-    matchLabels:
-      app: nginx
   template:
-    metadata:
-      labels:
-        app: nginx
     spec:
       containers:
       - name: nginx
-        image: nginx:latest
-        ports:
-        - containerPort: 80
+        image: docker.io/nginx:latest
