@@ -6,10 +6,7 @@ resources:
 
 patches:
   - path: deployment.yaml
-    target:
-      kind: Deployment
-      name: web-deployment-v2
-      namespace: pippo
+
 
 images:
 - name: docker.io/nginx:1.17.3
