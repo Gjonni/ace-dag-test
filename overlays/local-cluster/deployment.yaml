@@ -10,3 +10,6 @@ spec:
       containers:
       - name: nginx
         image: docker.io/nginx:latest
+        env:
+        - name: test
+          value: "true" 
