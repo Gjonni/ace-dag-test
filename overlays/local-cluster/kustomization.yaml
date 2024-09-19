@@ -10,5 +10,6 @@ patches:
       kind: Deployment
 
 images:
-- name: docker.io/*
-  newName: registry.par-tec.it/*
+- name: docker.io/nginx
+  newName: registry.par-tec.it/nginx
+  newTag: latest
