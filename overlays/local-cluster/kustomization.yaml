@@ -10,5 +10,5 @@ patches:
       kind: Deployment
 
 images:
-- name: docker.io/nginx:1.17.3
+- name: docker.io
   newName: registry.par-tec.it
