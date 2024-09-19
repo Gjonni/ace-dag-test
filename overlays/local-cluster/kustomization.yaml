@@ -6,7 +6,8 @@ resources:
 
 patches:
   - path: deployment.yaml
-
+    target:
+      kind: Deployment
 
 images:
 - name: docker.io/nginx:1.17.3
