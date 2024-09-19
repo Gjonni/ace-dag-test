@@ -1,0 +1,39 @@
+apiVersion: argoproj.io/v1alpha1
+kind: ApplicationSet
+metadata:
+  name: asg-prod
+  namespace: openshift-gitops
+spec:
+  generators:
+    - clusterDecisionResource:
+        configMapRef: acm-placement
+        labelSelector:
+          matchLabels:
+            cluster.open-cluster-management.io/placement: dag-placement
+        requeueAfterSeconds: 180
+  template:
+    metadata:
+      name: asg-prod-{{name}}
+      labels:
+        velero.io/exclude-from-backup: "true"
+    spec:
+      destination:
+        namespace: asg-prod
+        server: "{{server}}"
+      ignoreDifferences:
+        - jsonPointers:
+            - /imagePullSecrets
+            - /secrets
+          kind: ServiceAccount
+      project: default
+      sources:
+        - path: overlays/{{name}}
+          repoURL: https://gitlab.ocpdagprod.mef.gov.it/gitops/noipa.git
+          targetRevision: main
+      syncPolicy:
+        automated:
+          prune: true
+          selfHeal: true
+        syncOptions:
+          - CreateNamespace=true
+          - PruneLast=true
