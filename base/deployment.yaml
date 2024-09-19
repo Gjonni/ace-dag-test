@@ -16,7 +16,7 @@ spec:
         - name: nginx
           image: docker.io/nginx:1.17.3
           env:
-          - name: MY_VAR
-            value: "value" 
+          - name: test
+            value: "false" 
           ports:
             - containerPort: 80
