@@ -11,5 +11,4 @@ patches:
 
 images:
 - name: docker.io/nginx:1.17.3
-  newName: registry.par-tec.it/nginx
-  newTag: 1.17.3
+  newName: registry.par-tec.it
